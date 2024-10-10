@@ -9,10 +9,11 @@ using Project2BurgerMenu.Entities;
 
 namespace Project2BurgerMenu.Areas.Admin.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
-        
+
     {
-        BurgerMenuContext context=new BurgerMenuContext();
+        BurgerMenuContext context = new BurgerMenuContext();
         // GET: Admin/Product
         public ActionResult ProductList()
         {
@@ -27,10 +28,10 @@ namespace Project2BurgerMenu.Areas.Admin.Controllers
                                            select new SelectListItem
                                            {
                                                Text = x.CategoryName,
-                                               Value = x.CategoryId.ToString() 
-                                          }).ToList();
-            ViewBag.v=values;
-        return View();  
+                                               Value = x.CategoryId.ToString()
+                                           }).ToList();
+            ViewBag.v = values;
+            return View();
         }
 
         [HttpPost]
@@ -39,7 +40,47 @@ namespace Project2BurgerMenu.Areas.Admin.Controllers
             context.Products.Add(product);
             context.SaveChanges();
             return RedirectToAction("ProductList");
-            
+
+        }
+
+        public ActionResult DeleteProduct(int id)
+        {
+            var value = context.Products.Find(id);
+            context.Products.Remove(value);
+            context.SaveChanges();
+            return RedirectToAction("ProductList");
+
+        }
+        [HttpGet]
+        public ActionResult UpdateProduct(int id)
+        {
+
+            List<SelectListItem> values = (from x in context.Categories.ToList()
+                                           select new SelectListItem
+                                           {
+                                               Text = x.CategoryName,
+                                               Value = x.CategoryId.ToString()
+                                           }).ToList();
+            ViewBag.v = values;
+
+            var value = context.Products.Find(id);
+            return View(value);
+
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProduct(Product product)
+        {
+
+            var value = context.Products.Find(product.ProductId);
+            value.ProductName = product.ProductName;
+            value.ImageUrl = product.ImageUrl;
+            value.Description = product.Description;
+            value.Price = product.Price;
+            value.CategoryID = product.CategoryID;
+            context.SaveChanges();
+            return RedirectToAction("ProductList");
+
         }
     }
 }

@@ -30,20 +30,18 @@
                         {
                             <tr>
                                 <td>@item.ProductId</td>
-                                <td>...</td>
+                                <td><img src="@item.ImageUrl" height="50" width="50"/></td>
                                 <td>@item.ProductName</td>
                                 <td>@item.Category.CategoryName</td>
-                                <td><a href="#" class="btn btn-danger">Sil</a></td>
-                                <td><a href="#" class="btn btn-success">Güncelle</a></td>
+                                <td><a href="/Admin/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Sil</a></td>
+                                <td><a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-success">Güncelle</a></td>
                             </tr>
                         }
-
-
 
                     </tbody>
                 </table>
 
-                <a href="#" class="btn btn-primary">Yeni Kayıt Girişi</a>
+                <a href="/Admin/Product/CreateProduct" class="btn btn-primary">Yeni Kayıt Girişi</a>
             </div>
         </div>
     </div>
