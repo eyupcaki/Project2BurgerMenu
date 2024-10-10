@@ -130,6 +130,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AdminLayoutController.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
     <Compile Include="Context\BurgerMenuContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\Admin.cs" />
@@ -143,6 +144,10 @@
     <Compile Include="Migrations\202410081116588_mig1.cs" />
     <Compile Include="Migrations\202410081116588_mig1.designer.cs">
       <DependentUpon>202410081116588_mig1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202410101113514_mig2.cs" />
+    <Compile Include="Migrations\202410101113514_mig2.designer.cs">
+      <DependentUpon>202410101113514_mig2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -1610,6 +1615,8 @@
     <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Category\CategoryList.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\ProductList.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\CreateProduct.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -1675,6 +1682,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202410081116588_mig1.resx">
       <DependentUpon>202410081116588_mig1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202410101113514_mig2.resx">
+      <DependentUpon>202410101113514_mig2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
