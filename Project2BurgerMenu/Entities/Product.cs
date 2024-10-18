@@ -20,5 +20,8 @@ namespace Project2BurgerMenu.Entities
         public string ImageUrl { get; set; }
         public int CategoryID { get; set; }
         public virtual Category Category { get; set; }
+
+        public bool? DealofTheDay { get; set; }   /// ? boş geçilebilir demek 
+
     }
 }
